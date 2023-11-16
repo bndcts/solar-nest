@@ -13,14 +13,14 @@ export class DatabaseSeederService {
   async seedDatabase() {
     const dummyData : User[] = [
         { 
-            id: 1,
+            email: "john@doe.com",
             firstName: 'John',
             lastName: 'Doe',
             isActive: true,
             password: '123456'
         },
         {
-            id: 2,
+            email: "jane@doe.com",
             firstName: 'Jane',
             lastName: 'Doe',
             isActive: false,
