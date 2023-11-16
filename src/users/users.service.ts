@@ -20,4 +20,13 @@ export class UsersService {
   async remove(email: string): Promise<void> {
     await this.usersRepository.delete({ email });
   }
+
+  async create(email: string, password: string, firstName: string, lastName: string): Promise<User> {
+    const user = new User();
+    user.email = email;
+    user.password = password;
+    user.firstName = firstName;
+    user.lastName = lastName;
+    return this.usersRepository.save(user);
+  }
 }

@@ -20,6 +20,10 @@ export class AppController {
     return req.user;
   }
 
+  @Post('auth/register')
+  async registerUser(@Request() req) {
+    return this.authService.registerUser(req.body.email, req.body.password, req.body.firstName, req.body.lastName);
+  }
   @Get()
   getHello(): string {
     return this.appService.getHello();
