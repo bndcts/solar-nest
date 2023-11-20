@@ -6,6 +6,8 @@ import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/user.entity';
 import { DatabaseSeederService } from './database-seeder/database-seeder.service';
+import { DataCollectorService } from './data-collector/data-collector.service';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [AuthModule, UsersModule,
@@ -14,9 +16,9 @@ import { DatabaseSeederService } from './database-seeder/database-seeder.service
       database: '../general.db',
       entities: [User],
       synchronize: true,
-    })
-  ],
+    }),
+  ScheduleModule.forRoot()],
   controllers: [AppController],
-  providers: [AppService, DatabaseSeederService]
+  providers: [AppService, DatabaseSeederService, DataCollectorService]
 })
 export class AppModule {}
